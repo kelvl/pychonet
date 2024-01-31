@@ -224,6 +224,16 @@ class CeilingFan(EchonetInstance):
             ]
         )
     
+    def setLightMode(self, brightness, temperature):
+        return self.setMessages(
+            [
+                {"EPC": ENL_LIGHT_POWER, "PDC": 0x01, "EDT": LIGHT_POWER[True]},
+                {"EPC": ENL_LIGHT_BRIGHTNESS, "PDC": 0x01, "EDT": max(1, brightness)},
+                {"EPC": ENL_LIGHT_TEMPERATURE, "PDC": 0x01, "EDT": temperature},
+                {"EPC": ENL_LIGHT_NIGHT_MODE, "PDC": 0x01, "EDT": LIGHT_NIGHT_MODE[False]},
+            ]
+        )
+    
     def getLightTemperature(self):
         return self.getMessage(ENL_LIGHT_TEMPERATURE)
     
