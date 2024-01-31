@@ -8,6 +8,18 @@ class TIDError(Exception):
     pass
 
 
+def formatDecodedMsg(data):
+    transformed = {}
+    for key, value in data.items():
+        if key == "OPC":
+            transformed[key] = [formatDecodedMsg(x) for x in data[key]]
+        elif type(value) is int:
+            transformed[key] = str(hex(value))
+        else:
+            transformed[key] = value
+    return transformed
+        
+
 def decodeEchonetMsg(byte):
     data = {}
     try:

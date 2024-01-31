@@ -23,7 +23,7 @@ from pychonet.lib.const import (
     ENL_MULTICAST_ADDRESS,
 )
 from pychonet.lib.epc_functions import EPC_SUPER_FUNCTIONS
-from pychonet.lib.functions import TIDError, buildEchonetMsg, decodeEchonetMsg
+from pychonet.lib.functions import TIDError, buildEchonetMsg, decodeEchonetMsg, formatDecodedMsg
 
 
 class ECHONETAPIClient:
@@ -56,7 +56,7 @@ class ECHONETAPIClient:
 
         if self._debug_flag:
             self._logger(
-                f"ECHONETLite Message Received from {host} - Processed data is {processed_data}"
+                f"ECHONETLite Message Received from {host} - Processed data is {formatDecodedMsg(processed_data)}"
             )
 
         tid = processed_data["TID"]
