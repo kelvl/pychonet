@@ -99,12 +99,12 @@ class CeilingFan(EchonetInstance):
         0xF0: _013AF0,
         0xF1: _013AF1,
         0xF2: _013AF2,
-        # 0xFC: _013AFC,
-        # 0xF3: _013AF3,
-        # 0xF5: _013AF5,
-        # 0xF6: _013AF6,
-        # 0xF4: _013AF4,
-        # 0xF7: _013AF7,
+        0xFC: _013AFC,
+        0xF3: _013AF3,
+        0xF5: _013AF5,
+        0xF6: _013AF6,
+        0xF4: _013AF4,
+        0xF7: _013AF7,
     }
 
     def __init__(self, host, api_connector=None, instance=0x1):
